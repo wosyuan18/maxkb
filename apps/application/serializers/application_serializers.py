@@ -724,7 +724,7 @@ class ApplicationSerializer(serializers.Serializer):
         file = UploadedFileField(required=True, error_messages=ErrMessage.image(_("file")))
         user_id = serializers.UUIDField(required=True, error_messages=ErrMessage.uuid(_("User ID")))
 
-        @valid_license(model=Application, count=5,
+        @valid_license(model=Application, count=-1,
                        message=_(
                            'The community version supports up to 5 applications. If you need more applications, please contact us (https://fit2cloud.com/).'))
         @transaction.atomic
